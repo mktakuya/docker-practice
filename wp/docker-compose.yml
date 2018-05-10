@@ -1,0 +1,13 @@
+webserver:
+  image: wordpress
+  ports:
+    - "80:80"
+  links:
+    - "dbserver:mysql"
+
+dbserver:
+  image: mysql:5.6
+  volumes_from:
+    - dataonly
+  environment:
+    MYSQL_ROOT_PASSWORD: "mukotaku"
